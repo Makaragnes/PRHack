@@ -1,12 +1,11 @@
 package com.example.prhack.controllers;
 
 import java.io.File;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicLong;
 
+import com.example.prhack.converters.ExtractTextPdf;
 import com.example.prhack.restservice.FSResponse;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -25,6 +24,20 @@ public class GreetController {
 
         ArrayList<String> files = new ArrayList<>();
         ArrayList<String> folders = new ArrayList<>();
+
+        // ------------------
+        ExtractTextPdf demo = new ExtractTextPdf();
+        demo.run();
+//        try {
+//            demo.start();
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
+
+//        TextFileWriter textFileWriter = new TextFileWriter();
+//        textFileWriter.run();
+
+        // ------------------
 
 
         for (File file : fileList) {
@@ -45,7 +58,6 @@ public class GreetController {
 
         return prettyJson;
     }
-
 
     public static void searchFiles(File rootFile, List<File> fileList,String name) {
         System.out.println("searching at: " + rootFile.getAbsolutePath());
