@@ -18,7 +18,7 @@ public class GreetController {
     private static final String template = "Hello, %s!";
     private final AtomicLong counter = new AtomicLong();
 
-    @RequestMapping("/greet")
+    @RequestMapping("/files")
     public String greet(@RequestParam(value = "name", defaultValue = "World") String name) {
         ArrayList<File> fileList = new ArrayList<>();
         searchFiles(new File("/home/riki/PromrelationBankHack/dataset/"+name), fileList,name);
